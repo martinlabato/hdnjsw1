@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《黄帝内经·素问·上古天真论》逐句精讲</title>
+  <style>
+    :root {
+      --bg-page: #F9F5EB;
+      --bg-card: #FFFDF8;
+      --bg-subtle: #F2ECE0;
+      --bg-sidebar: #F4EFE4;
+      --text-main: #231F1B;
+      --text-muted: #665E54;
+      --text-light: #8C8275;
+      --accent-red: #9E2A2B;
+      --accent-red-soft: rgba(158, 42, 43, 0.08);
+      --accent-jade: #2A5C4E;
+      --accent-jade-soft: rgba(42, 92, 78, 0.08);
+      --border-color: #E2D9C8;
+      --shadow-sm: 0 2px 8px rgba(35, 31, 27, 0.05);
+      --shadow-md: 0 6px 20px rgba(35, 31, 27, 0.08);
+      --font-serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Inter", sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg-page: #181715;
+      --bg-card: #22201D;
+      --bg-subtle: #2B2824;
+      --bg-sidebar: #1D1B18;
+      --text-main: #EAE4D9;
+      --text-muted: #ADA599;
+      --text-light: #7E776D;
+      --accent-red: #D96B6C;
+      --accent-red-soft: rgba(217, 107, 108, 0.14);
+      --accent-jade: #64A894;
+      --accent-jade-soft: rgba(100, 168, 148, 0.14);
+      --border-color: #36322D;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.75;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Top Header */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+
+    .brand-seal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 6px;
+      background: var(--accent-red);
+      color: #FFFDF8;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .topbar-title {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.42rem 0.78rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-page);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      transition: all 0.18s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      border-color: var(--accent-jade);
+      color: var(--accent-jade);
+      background: var(--accent-jade-soft);
+    }
+
+    .btn.active {
+      background: var(--accent-jade);
+      color: #FFFDF8;
+      border-color: var(--accent-jade);
+    }
+
+    .btn-toc-mobile {
+      display: none;
+    }
+
+    /* Layout */
+    .layout {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 2rem;
+      padding: 1.5rem 1.25rem 4rem;
+    }
+
+    /* Sidebar TOC */
+    .sidebar {
+      position: sticky;
+      top: 4.5rem;
+      align-self: start;
+      max-height: calc(100vh - 5.5rem);
+      overflow-y: auto;
+      background: var(--bg-sidebar);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1rem;
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.75rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .sidebar-title {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--accent-red);
+    }
+
+    .progress-pill {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: var(--accent-jade-soft);
+      color: var(--accent-jade);
+      font-weight: 600;
+    }
+
+    .toc-group {
+      margin-bottom: 0.9rem;
+    }
+
+    .toc-group-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      padding: 0.25rem 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .toc-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+      padding: 0.35rem 0.55rem;
+      border-radius: 6px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.84rem;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .toc-link:hover {
+      background: var(--bg-subtle);
+      color: var(--accent-red);
+    }
+
+    .toc-link.current {
+      background: var(--accent-red-soft);
+      color: var(--accent-red);
+      font-weight: 600;
+    }
+
+    .toc-link .toc-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .toc-done-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-jade);
+      flex-shrink: 0;
+      opacity: 0;
+    }
+
+    .toc-link.learned .toc-done-dot {
+      opacity: 1;
+    }
+
+    /* Main Content */
+    .main-content {
+      min-width: 0;
+    }
+
+    .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-top: 4px solid var(--accent-red);
+      border-radius: 14px;
+      padding: 1.75rem 1.75rem 1.5rem;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent-red);
+      background: var(--accent-red-soft);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      margin-bottom: 0.65rem;
+    }
+
+    .hero-card h1 {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      line-height: 1.3;
+      margin-bottom: 0.65rem;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.15rem;
+    }
+
+    /* Inline Master TOC Card */
+    .master-toc {
+      background: var(--bg-subtle);
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .master-toc-head {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.65rem;
+      color: var(--text-main);
+    }
+
+    .master-toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .master-toc-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.75rem 0.9rem;
+    }
+
+    .master-toc-box a.part-link {
+      display: block;
+      font-weight: 700;
+      color: var(--accent-red);
+      text-decoration: none;
+      font-size: 0.92rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .master-toc-box a.part-link:hover {
+      text-decoration: underline;
+    }
+
+    .master-toc-box p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Part Section */
+    .part-header {
+      margin: 2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border-color);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+      scroll-margin-top: 4.75rem;
+    }
+
+    .part-header h2 {
+      font-family: var(--font-serif);
+      font-size: 1.38rem;
+      color: var(--accent-red);
+    }
+
+    .part-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Sentence Card */
+    .sentence-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.35rem 1.5rem;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      scroll-margin-top: 4.75rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .sentence-card.learned-card {
+      border-left: 4px solid var(--accent-jade);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent-red);
+      background: var(--accent-red-soft);
+      padding: 0.22rem 0.65rem;
+      border-radius: 6px;
+    }
+
+    .card-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .mini-btn {
+      font-size: 0.78rem;
+      padding: 0.24rem 0.58rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-page);
+      color: var(--text-muted);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .mini-btn:hover {
+      color: var(--accent-red);
+      border-color: var(--accent-red);
+    }
+
+    .mini-btn.done {
+      background: var(--accent-jade);
+      color: #FFFDF8;
+      border-color: var(--accent-jade);
+    }
+
+    .original-box {
+      background: var(--bg-subtle);
+      border-left: 4px solid var(--accent-red);
+      border-radius: 0 8px 8px 0;
+      padding: 0.95rem 1.15rem;
+      margin-bottom: 1rem;
+      font-family: var(--font-serif);
+      font-size: 1.16rem;
+      line-height: 1.85;
+      color: var(--text-main);
+    }
+
+    .original-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-red);
+      letter-spacing: 0.04em;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .study-details {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    body.plain-mode .study-details {
+      display: none;
+    }
+
+    .detail-block h3 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--accent-jade);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .vocab-list {
+      list-style: none;
+      display: grid;
+      gap: 0.38rem;
+      padding-left: 0.15rem;
+    }
+
+    .vocab-list li {
+      font-size: 0.93rem;
+      line-height: 1.65;
+      padding-left: 0.85rem;
+      position: relative;
+    }
+
+    .vocab-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-red);
+      font-weight: 700;
+    }
+
+    .vocab-term {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .translation-text {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--text-main);
+      background: var(--bg-page);
+      padding: 0.7rem 0.95rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .insight-box {
+      background: var(--accent-jade-soft);
+      border-radius: 8px;
+      padding: 0.75rem 0.95rem;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    .page-footer {
+      margin-top: 2.5rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .page-footer a {
+      color: var(--accent-jade);
+      text-decoration: none;
+    }
+
+    .page-footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Floating Back Buttons */
+    .floating-nav {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 45;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: all 0.22s ease;
+    }
+
+    .floating-nav.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .float-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.58rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-size: 0.84rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.18s ease;
+    }
+
+    .float-btn:hover {
+      background: var(--accent-red);
+      color: #FFFDF8;
+      border-color: var(--accent-red);
+    }
+
+    /* Mobile Drawer */
+    .drawer-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .drawer-backdrop.open {
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+        padding: 1rem 0.9rem 4.5rem;
+      }
+
+      .btn-toc-mobile {
+        display: inline-flex;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: min(300px, 85vw);
+        max-height: 100vh;
+        z-index: 60;
+        border-radius: 0 14px 14px 0;
+        transform: translateX(-105%);
+        transition: transform 0.24s ease;
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+      }
+
+      .hero-card {
+        padding: 1.25rem;
+      }
+
+      .hero-card h1 {
+        font-size: 1.45rem;
+      }
+
+      .sentence-card {
+        padding: 1.1rem;
+      }
+
+      .original-box {
+        font-size: 1.06rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" id="page-top">
+    <div class="topbar-left">
+      <span class="brand-seal">素</span>
+      <span class="topbar-title">《黄帝内经·素问》第一 · 上古天真论</span>
+    </div>
+    <div class="topbar-actions">
+      <button type="button" class="btn btn-toc-mobile" id="mobile-toc-btn">☰ 目录</button>
+      <button type="button" class="btn" id="toggle-mode-btn">仅看原文</button>
+      <button type="button" class="btn" id="toggle-theme-btn">夜间模式</button>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar" aria-label="篇内目录">
+      <div class="sidebar-header">
+        <span class="sidebar-title">篇内目录</span>
+        <span class="progress-pill" id="progress-pill">已学 0 / 18</span>
+      </div>
+
+      <div class="toc-group">
+        <div class="toc-group-title">一、上古与今时寿夭之辨</div>
+        <a href="#s1" class="toc-link" data-target="s1"><span class="toc-text">1. 昔在黄帝，生而神灵</span><span class="toc-done-dot"></span></a>
+        <a href="#s2" class="toc-link" data-target="s2"><span class="toc-text">2. 余闻上古之人，春秋皆度百岁</span><span class="toc-done-dot"></span></a>
+        <a href="#s3" class="toc-link" data-target="s3"><span class="toc-text">3. 法于阴阳，和于术数</span><span class="toc-done-dot"></span></a>
+        <a href="#s4" class="toc-link" data-target="s4"><span class="toc-text">4. 今时之人不然，以酒为浆</span><span class="toc-done-dot"></span></a>
+      </div>
+
+      <div class="toc-group">
+        <div class="toc-group-title">二、圣人之教与恬惔虚无</div>
+        <a href="#s5" class="toc-link" data-target="s5"><span class="toc-text">5. 虚邪贼风，恬惔虚无</span><span class="toc-done-dot"></span></a>
+        <a href="#s6" class="toc-link" data-target="s6"><span class="toc-text">6. 志闲少欲，心安不惧</span><span class="toc-done-dot"></span></a>
+        <a href="#s7" class="toc-link" data-target="s7"><span class="toc-text">7. 美其食，任其服，其民曰朴</span><span class="toc-done-dot"></span></a>
+        <a href="#s8" class="toc-link" data-target="s8"><span class="toc-text">8. 嗜欲不能劳其目</span><span class="toc-done-dot"></span></a>
+        <a href="#s9" class="toc-link" data-target="s9"><span class="toc-text">9. 德全不危，动作不衰</span><span class="toc-done-dot"></span></a>
+      </div>
+
+      <div class="toc-group">
+        <div class="toc-group-title">三、女子七七与丈夫八八</div>
+        <a href="#s10" class="toc-link" data-target="s10"><span class="toc-text">10. 帝问：老而无子，天数然耶</span><span class="toc-done-dot"></span></a>
+        <a href="#s11" class="toc-link" data-target="s11"><span class="toc-text">11. 女子七岁至七七生长衰老</span><span class="toc-done-dot"></span></a>
+        <a href="#s12" class="toc-link" data-target="s12"><span class="toc-text">12. 丈夫八岁至八八生长衰老</span><span class="toc-done-dot"></span></a>
+        <a href="#s13" class="toc-link" data-target="s13"><span class="toc-text">13. 年老有子者，肾气有余</span><span class="toc-done-dot"></span></a>
+        <a href="#s14" class="toc-link" data-target="s14"><span class="toc-text">14. 夫道者，却老全形生子</span><span class="toc-done-dot"></span></a>
+      </div>
+
+      <div class="toc-group">
+        <div class="toc-group-title">四、养生四重境界</div>
+        <a href="#s15" class="toc-link" data-target="s15"><span class="toc-text">15. 上古真人：寿敝天地</span><span class="toc-done-dot"></span></a>
+        <a href="#s16" class="toc-link" data-target="s16"><span class="toc-text">16. 中古至人：淳德全道</span><span class="toc-done-dot"></span></a>
+        <a href="#s17" class="toc-link" data-target="s17"><span class="toc-text">17. 其次圣人：以恬愉为务</span><span class="toc-done-dot"></span></a>
+        <a href="#s18" class="toc-link" data-target="s18"><span class="toc-text">18. 其次贤人：法则天地</span><span class="toc-done-dot"></span></a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="hero-card" id="master-toc">
+        <span class="hero-tag">黄帝内经 · 素问篇第一</span>
+        <h1>《上古天真论》全篇逐句精讲</h1>
+        <p class="hero-desc">本篇为《黄帝内经》开篇总纲，借黄帝与岐伯问答，阐述“天人相应、精神内守、顺时养生”的核心法则，以及人体以“七”“八”为节律的生长壮老规律。</p>
+
+        <div class="master-toc">
+          <div class="master-toc-head">全篇总目录（点击直达各部分）</div>
+          <div class="master-toc-grid">
+            <div class="master-toc-box">
+              <a href="#part-1" class="part-link">第一部分：寿夭之辨（第 1–4 句）</a>
+              <p>对比“上古知道者”与“今时之人”，点明长寿与早衰的根本原因。</p>
+            </div>
+            <div class="master-toc-box">
+              <a href="#part-2" class="part-link">第二部分：养神之道（第 5–9 句）</a>
+              <p>阐发“虚邪贼风，避之有时”与“恬惔虚无，精神内守”的修养要诀。</p>
+            </div>
+            <div class="master-toc-box">
+              <a href="#part-3" class="part-link">第三部分：生命节律（第 10–14 句）</a>
+              <p>详述女子“七七”、男子“八八”肾气盛衰与天癸生竭的生理周期。</p>
+            </div>
+            <div class="master-toc-box">
+              <a href="#part-4" class="part-link">第四部分：四重境界（第 15–18 句）</a>
+              <p>分述真人、至人、圣人、贤人四种不同层次的养生修道境界。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 第一部分 -->
+      <div class="part-header" id="part-1">
+        <h2>第一部分：上古与今时寿夭之辨</h2>
+        <span class="part-sub">第 1 – 4 句</span>
+      </div>
+
+      <article class="sentence-card" id="s1">
+        <div class="card-top">
+          <span class="card-badge">第 1 句 · 圣王求道</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s1">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          昔在黄帝，生而神灵，弱而能言，幼而徇齐（xùn jì），长而敦敏，成而登天。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">昔在</span>：从前、往昔。</li>
+              <li><span class="vocab-term">神灵</span>：聪明智慧、悟性极高（并非指神怪，而是天赋异禀）。</li>
+              <li><span class="vocab-term">弱</span>：年幼之时（古人常以“弱”指代幼年、婴儿期）。</li>
+              <li><span class="vocab-term">徇齐（xùn jì）</span>：“徇”通“迅”，疾速；“齐”通“济”，周全。意为思维敏捷、行事周全。</li>
+              <li><span class="vocab-term">敦敏</span>：敦厚诚恳而又聪敏好学。</li>
+              <li><span class="vocab-term">成而登天</span>：成年后功成德备，传说乘龙飞升（此处借以赞颂黄帝德业圆满）。</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">从前的黄帝，生下来就天资聪颖，襁褓幼小时就能说话，童年时思维敏捷、办事周全，长大后为人敦厚又勤敏好学，成年功德圆满后便登天而去。</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">“天资（生而神灵）”与“后天修养（长而敦敏）”缺一不可。黄帝尚且需要虚心向岐伯求教养生之道，意在告诫后人：学医养生贵在谦逊勤勉。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sentence-card" id="s2">
+        <div class="card-top">
+          <span class="card-badge">第 2 句 · 黄帝发问</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s2">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          乃问于天师曰：余闻上古之人，春秋皆度百岁，而动作不衰；今时之人，年半百而动作皆衰者，时世异耶，人将失之耶？
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">天师</span>：黄帝对老师岐伯的尊称（意为通晓自然大道之师，非后世道教之称）。</li>
+              <li><span class="vocab-term">春秋</span>：年龄、岁数（古人以春去秋来计年）。</li>
+              <li><span class="vocab-term">度（dù）</span>：越过、超过。</li>
+              <li><span class="vocab-term">动作</span>：日常的行动、筋骨活动能力。</li>
+              <li><span class="vocab-term">时世异耶，人将失之耶</span>：“将”作选择连词，相当于“还是”。意为是时代环境变了呢，还是现代人自己违背了养生之道呢？</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">于是黄帝向天师岐伯请教说：我听说上古时代的人，年龄都能超过百岁，而且行动起来不见衰老；可现在的人，刚到五十岁左右就行动衰退了，这是因为时代环境不同了呢，还是人们自己丢失了养生之法呢？</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">中医衡量健康不只看活了多少年，更看重“动作不衰”的生命质量。此问将“外因（时世）”与“内因（人失之）”并列抛出，确立了全篇论述的主线。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sentence-card" id="s3">
+        <div class="card-top">
+          <span class="card-badge">第 3 句 · 养生总纲</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s3">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          岐伯对曰：上古之人，其知道者，法于阴阳，和于术数，食饮有节，起居有常，不妄作劳，故能形与神俱，而尽终其天年，度百岁乃去。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">其知道者</span>：其中懂得养生大道的人（特指知道者，而非上古所有人）。</li>
+              <li><span class="vocab-term">法于阴阳</span>：效法、顺应天地自然阴阳消长规律（如四季更替、昼夜节律）。</li>
+              <li><span class="vocab-term">和于术数</span>：“和”为调和；“术数”此处指导引、吐纳、按跷等修身养性之术，使其恰到好处。</li>
+              <li><span class="vocab-term">食饮有节，起居有常，不妄作劳</span>：饮食有节制，作息有规律，不违背生理限度地过度劳作（含体力、房劳与思虑）。</li>
+              <li><span class="vocab-term">形与神俱</span>：肉体（形）与精神意识（神）协调统一、不相分离。</li>
+              <li><span class="vocab-term">天年</span>：天赋的自然寿限（《灵枢·天年》认为是百岁上下）。</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">岐伯回答说：上古时代那些懂得养生大道的人，效法天地阴阳的规律，调和运用各种养生方法，饮食有节制，作息有规律，不胡乱过度劳累，所以能使形体与精神协调合一，安然度过上天赋予的自然寿命，活到百岁以上才离世。</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">此句是《黄帝内经》最核心的养生总纲：“法于阴阳，和于术数”是顺应自然的大原则；“食饮有节，起居有常，不妄作劳”是每日吃、睡、动的三条落地铁律；“形与神俱”则是身心合一的最高健康标准。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sentence-card" id="s4">
+        <div class="card-top">
+          <span class="card-badge">第 4 句 · 早衰之因</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s4">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          今时之人不然也，以酒为浆，以妄为常，醉以入房，以欲竭其精，以耗散其真，不知持满，不时御神，务快其心，逆于生乐，起居无节，故半百而衰也。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">以酒为浆</span>：“浆”指解渴的水浆、米汤。意为把酒当水喝，毫无节制。</li>
+              <li><span class="vocab-term">以妄为常</span>：把违背生理常理的放纵行为当成家常便饭。</li>
+              <li><span class="vocab-term">醉以入房</span>：酒醉之后行房事，极易耗伤肾精。</li>
+              <li><span class="vocab-term">以欲竭其精，以耗散其真</span>：因贪欲耗尽精气，因过度损耗而散失真元之气。</li>
+              <li><span class="vocab-term">不知持满</span>：不懂得在精力充盈（满）时加以守护节制。</li>
+              <li><span class="vocab-term">不时御神</span>：不能顺应时宜去驾驭、收摄自己的心神。</li>
+              <li><span class="vocab-term">务快其心，逆于生乐</span>：一味追求感官的短暂痛快，却违背了生命长久安康的真正乐趣。</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">如今的人却不是这样：把酒当水一样痛饮，把放纵妄为当成习惯，酒醉后还行房事，任由私欲耗尽精气，过度消耗散失真元；不懂得保持精气盈满，也不懂得顺时调摄心神，只顾着贪图一时痛快，违背了养生的真乐，起居作息毫无节制，所以刚到五十岁就衰老了。</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">这一句与上一句构成逐项镜像对照，并点出了早衰的心理病根——把消耗性的感官刺激（“快其心”）错当成了滋养性的生命快乐（“生乐”）。</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 第二部分 -->
+      <div class="part-header" id="part-2">
+        <h2>第二部分：圣人之教与“恬惔虚无”</h2>
+        <span class="part-sub">第 5 – 9 句</span>
+      </div>
+
+      <article class="sentence-card" id="s5">
+        <div class="card-top">
+          <span class="card-badge">第 5 句 · 外避内守</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s5">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          夫上古圣人之教下也，皆谓之虚邪贼风，避之有时，恬惔（tián dàn）虚无，真气从之，精神内守，病安从来。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">教下</span>：教导民众、百姓。</li>
+              <li><span class="vocab-term">虚邪贼风</span>：泛指一切反常的致病外邪（乘人体正气虚弱或时令不正而侵袭的风寒暑湿燥火等）。</li>
+              <li><span class="vocab-term">避之有时</span>：顺应四时气候变化，及时躲避外邪（如天冷加衣、避开大风寒露）。</li>
+              <li><span class="vocab-term">恬惔（tián dàn）虚无</span>：心境安静淡泊，没有过度的贪求与杂念妄想。</li>
+              <li><span class="vocab-term">真气从之</span>：体内的正气、元气自然顺畅运行。</li>
+              <li><span class="vocab-term">病安从来</span>：“安”是哪里、怎么。疾病又从哪里产生呢？</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">上古圣人教导百姓，总是告诉他们：对于反常的致病外邪，要按时令去躲避；同时内心保持安静淡泊、无杂念妄求，这样体内的真气就会顺畅运行，精神守持在体内不向外耗散，疾病又怎么会找上门来呢？</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">中医防病的两大法宝：对外是“虚邪贼风，避之有时”（避外邪），对内是“恬惔虚无，精神内守”（护正气）。正气存内，邪不可干，这是“治未病”思想的源头。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sentence-card" id="s6">
+        <div class="card-top">
+          <span class="card-badge">第 6 句 · 身心安泰</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s6">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          是以志闲而少欲，心安而不惧，形劳而不倦，气从以顺，各从其欲，皆得所愿。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">志闲</span>：志向从容闲适，不急功近利、不焦躁。</li>
+              <li><span class="vocab-term">形劳而不倦</span>：身体适当劳动锻炼，但不过度疲惫透支。</li>
+              <li><span class="vocab-term">气从以顺</span>：气血顺从和畅，不郁结、不逆乱。</li>
+              <li><span class="vocab-term">各从其欲，皆得所愿</span>：每个人的欲望都合理有度，因此都能得到满足。</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">因此，人们心志闲适而少有私欲，心情安宁而没有恐惧，身体适当劳作却不至于疲倦，真气顺从调和，各自顺应本性而欲望有度，人人都能实现自己的心愿。</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">“形劳而不倦”非常关键：养生不是一动不动地躺平，而是适度劳作、不过度透支；同时“心安不惧”能避免惊恐伤肾、思虑伤脾。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sentence-card" id="s7">
+        <div class="card-top">
+          <span class="card-badge">第 7 句 · 淳朴知足</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s7">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          故美其食，任其服，乐其俗，高下不相慕，其民故曰朴。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">美其食</span>：无论粗茶淡饭还是家常食物，都觉得甘美可口。</li>
+              <li><span class="vocab-term">任其服</span>：“任”是听任、随适。穿着简便合体，不攀比奢华。</li>
+              <li><span class="vocab-term">乐其俗</span>：安于并喜爱当地的风俗生活。</li>
+              <li><span class="vocab-term">高下不相慕</span>：地位高低不同的人互相不羡慕嫉妒、不攀比。</li>
+              <li><span class="vocab-term">朴</span>：淳朴自然，未经雕琢伪饰的本真状态。</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">所以无论吃什么都觉得香甜，穿什么衣服都觉得合身自在，安乐于自己的风俗习惯，地位高低之间互不攀比羡慕，那时的百姓因此被称为“朴”。</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">这一句与《道德经》的“甘其食，美其服，安其居，乐其俗”一脉相承。知足常乐、减少社会攀比带来的内耗，本质上是在保护心神与肝气的疏泄。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sentence-card" id="s8">
+        <div class="card-top">
+          <span class="card-badge">第 8 句 · 不惑于物</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s8">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          是以嗜欲不能劳其目，淫邪不能惑其心，愚智贤不肖不惧于物，故合于道。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">嗜欲</span>：过度的嗜好与欲望。</li>
+              <li><span class="vocab-term">劳其目</span>：使眼睛疲惫（古人认为“五色令人目盲”，目为心神之外窍，过度逐物则耗神）。</li>
+              <li><span class="vocab-term">淫邪</span>：荒淫邪僻、扰乱心志的外界诱惑。</li>
+              <li><span class="vocab-term">愚智贤不肖</span>：无论愚笨还是聪明、贤良还是平庸的人。</li>
+              <li><span class="vocab-term">不惧于物</span>：不被外物得失所恐吓、奴役。</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">因此，贪欲不能使他们的眼睛疲惫，邪念不能迷惑他们的内心，无论聪明还是愚钝、贤能还是平庸的人，都不会因外物而恐惧忧虑，所以都能合于自然大道。</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">大道不分智愚，普通人只要不被外界声色利禄牵着鼻子走（不劳目、不惑心、不惧物），同样可以“合于道”。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sentence-card" id="s9">
+        <div class="card-top">
+          <span class="card-badge">第 9 句 · 德全不危</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s9">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          所以能年皆度百岁，而动作不衰者，以其德全不危也。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">德全</span>：“德”既指道德修养，也指得道之后生命精气的完满充沛（《老子》“含德之厚，比于赤子”）。</li>
+              <li><span class="vocab-term">不危</span>：没有耗散亏损的危险，身心安稳。</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">他们之所以能够年龄都超过百岁而行动依然不衰老，就是因为他们的修养完备、精气保全而不陷入危殆的缘故。</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">“德全不危”是第二部分的小结：养生的最高境界不仅是吃药进补，而是通过“养德、养心”来保全生命元气。</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 第三部分 -->
+      <div class="part-header" id="part-3">
+        <h2>第三部分：女子“七七”与丈夫“八八”</h2>
+        <span class="part-sub">第 10 – 14 句</span>
+      </div>
+
+      <article class="sentence-card" id="s10">
+        <div class="card-top">
+          <span class="card-badge">第 10 句 · 问衰老与生育</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s10">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          帝曰：人年老而无子者，材力尽邪，将天数然也。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">材力尽邪</span>：“材力”指先天的体质与精力；“邪（yé）”通“耶”，疑问助词。意为是精力耗尽了吗？</li>
+              <li><span class="vocab-term">天数然也</span>：“天数”指自然生理规律。还是自然规律本来就是如此呢？</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">黄帝问道：人到年老的时候不能生育子女，是因为精力耗尽了呢，还是自然规律本来就是这样呢？</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">从宏观的养生哲学转向具体的生殖生理学，引出中医最著名的生命节律论。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sentence-card" id="s11">
+        <div class="card-top">
+          <span class="card-badge">第 11 句 · 女子七七节律</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s11">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          岐伯曰：女子七岁，肾气盛，齿更发长；二七而天癸（guǐ）至，任脉通，太冲脉盛，月事以时下，故有子；三七，肾气平均，故真牙生而长极；四七，筋骨坚，发长极，身体盛壮；五七，阳明脉衰，面始焦，发始堕；六七，三阳脉衰于上，面皆焦，发始白；七七，任脉虚，太冲脉衰少，天癸竭，地道不通，故形坏而无子也。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">天癸（guǐ）</span>：肾精充盛到一定程度时产生的一种促进生长发育与生殖功能的物质（并非单纯指月经本身）。</li>
+              <li><span class="vocab-term">任脉、太冲脉</span>：奇经八脉中的两条重要经脉。任脉主胞胎（“任主胞胎”），冲脉为“血海”，二脉充盛则月经按时来潮。</li>
+              <li><span class="vocab-term">真牙</span>：智齿（第三磨牙）。“长极”指发育至顶点。</li>
+              <li><span class="vocab-term">阳明脉</span>：多气多血之经，循行经过面部。35岁（五七）阳明脉始衰，故脸色开始枯槁（焦）、头发开始脱落（堕）。</li>
+              <li><span class="vocab-term">三阳脉</span>：手足太阳、阳明、少阳经，皆上行头面。42岁（六七）三阳脉俱衰，故整个面部枯槁、头发花白。</li>
+              <li><span class="vocab-term">地道不通</span>：指月经断绝（绝经），失去生殖通道功能。</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">岐伯回答说：女子到了七岁，肾气开始充盛，乳牙更换、头发变长；十四岁（二七）时天癸到达，任脉畅通，太冲脉气血充盛，月经按时来潮，因此具备了生育能力；二十一岁（三七）时肾气平和充实，所以智齿生长出来，身体发育到顶点；二十八岁（四七）时筋骨强健，头发生长到极盛，身体最为强壮；三十五岁（五七）时阳明经脉开始衰弱，脸色开始焦黄暗淡，头发开始脱落；四十二岁（六七）时三阳经脉在头面部都衰弱了，脸色全面枯槁，头发开始变白；四十九岁（七七）时任脉空虚，太冲脉气血衰少，天癸竭尽，月经断绝，所以形体衰老而不能再怀胎生子了。</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">女性生理以“7年”为一个周期：28岁达巅峰，35岁阳明脉衰（美容抗衰的关键节点在脾胃阳明经），49岁进入绝经期。一切生长壮老的根源都在“肾气”与“天癸”。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sentence-card" id="s12">
+        <div class="card-top">
+          <span class="card-badge">第 12 句 · 丈夫八八节律</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s12">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          丈夫八岁，肾气实，发长齿更；二八，肾气盛，天癸至，精气溢写（xiè），阴阳和，故能有子；三八，肾气平均，筋骨劲强，故真牙生而长极；四八，筋骨隆盛，肌肉满壮；五八，肾气衰，发堕齿槁；六八，阳气衰竭于上，面焦，发鬓颁（bān）白；七八，肝气衰，筋不能动，天癸竭，精少，肾藏（zàng）衰，形体皆极；八八，则齿发去，肾者主水，受五藏六府之精而藏之，故五藏盛，乃能写。今五藏皆衰，筋骨解堕（xiè duò），天癸尽矣。故发鬓白，身体重，行步不正，而无子耳。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">溢写（xiè）</span>：“写”通“泻”，指精气充盈而外泄。</li>
+              <li><span class="vocab-term">颁（bān）白</span>：“颁”通“斑”，指头发与两鬓花白。</li>
+              <li><span class="vocab-term">藏（zàng）、府（fǔ）</span>：古字通“脏”“腑”。</li>
+              <li><span class="vocab-term">解堕（xiè duò）</span>：“解”通“懈”，“堕”通“惰”，指筋骨松弛无力、疲软。</li>
+              <li><span class="vocab-term">肾者主水，受五藏六府之精而藏之</span>：肾不仅是藏精之所，它所藏的“精”来源于五脏六腑的精华汇聚；只有五脏都盛，肾精才能充盈排泄。</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">男子到了八岁，肾气开始充实，头发变长、乳牙更换；十六岁（二八）时肾气充盛，天癸到达，精气充盈溢出，男女阴阳交合便能生育子女；二十四岁（三八）时肾气平和充实，筋骨劲健强壮，所以智齿长出而身高发育到顶点；三十二岁（四八）时筋骨丰隆强盛，肌肉饱满壮实；四十岁（五八）时肾气开始衰退，头发脱落、牙齿枯槁；四十八岁（六八）时头面部的阳气衰竭，面容枯槁，头发和鬓角花白；五十六岁（七八）时肝气衰退，筋脉活动不灵便，天癸竭尽，精气减少，肾脏衰弱，形体也衰老到极点；六十四岁（八八）时牙齿和头发都会脱落。肾主水液，接收五脏六腑的精华并贮藏起来，所以必须五脏都充盛，肾才能排出精气。如今五脏都衰退了，筋骨松懈无力，天癸已经耗尽，所以须发花白、身体沉重、走路不稳，也就不能生育了。</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">男性生理以“8年”为周期：32岁巅峰，40岁肾气始衰，56岁肝气衰（肝主筋，所以“筋不能动”）。同时揭示了“补肾必先养五脏”的深层原理——因为肾精是由五脏六腑之精汇聚而成的。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sentence-card" id="s13">
+        <div class="card-top">
+          <span class="card-badge">第 13 句 · 例外之理</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s13">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          帝曰：有其年已老而有子者何也。岐伯曰：此其天寿过度，气脉常通，而肾气有馀也。此虽有子，男不过尽八八，女不过尽七七，而天地之精气皆竭矣。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">天寿过度</span>：天赋的寿数超越了常人的限度（先天禀赋极厚）。</li>
+              <li><span class="vocab-term">气脉常通</span>：经脉气血始终保持畅通无阻。</li>
+              <li><span class="vocab-term">男不过尽八八，女不过尽七七</span>：指一般常人而言，通常不会超过六十四岁和四十九岁的生殖极限。</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">黄帝问：有些人年纪已经很老了却还能生孩子，这是为什么呢？岐伯回答说：这是因为他们天赋的寿命超越常人，经气血脉始终畅通，而且肾气还有富余的缘故。不过这样的人虽然年老能生子，但就常人规律而言，男子一般不超过六十四岁，女子一般不超过四十九岁，天地赋予人体的生殖精气就都耗竭了。</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">这里既承认先天禀赋的个体差异（天寿过度、气脉常通），也重申了“七七”“八八”是普遍的自然节律。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sentence-card" id="s14">
+        <div class="card-top">
+          <span class="card-badge">第 14 句 · 得道破限</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s14">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          帝曰：夫道者年皆百数，能有子乎。岐伯曰：夫道者能却老而全形，身年虽寿，能生子也。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">夫道者</span>：“夫”为发语词。“道者”指懂得并践行养生大道的人。</li>
+              <li><span class="vocab-term">却老而全形</span>：“却”是退却、延缓。能够延缓衰老而保全形体的完整强健。</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">黄帝又问：那些修习养生大道的人年纪都上百岁了，还能生孩子吗？岐伯回答说：懂得并践行养生大道的人能够延缓衰老、保全形体，所以年岁虽然很大了，依然能够生育子女。</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">给出了全段最鼓舞人心的结论：虽然常人受限于七七、八八，但后天懂得养生修道、固护肾精与五脏之人，可以打破常规限制，达到“却老而全形”。</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 第四部分 -->
+      <div class="part-header" id="part-4">
+        <h2>第四部分：养生四重境界</h2>
+        <span class="part-sub">第 15 – 18 句</span>
+      </div>
+
+      <article class="sentence-card" id="s15">
+        <div class="card-top">
+          <span class="card-badge">第 15 句 · 第一境：真人</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s15">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          黄帝曰：余闻上古有真人者，提挈（tí qiè）天地，把握阴阳，呼吸精气，独立守神，肌肉若一，故能寿敝天地，无有终时，此其道生。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">真人</span>：修道达到最高境界的人，与天地大道完全合一。</li>
+              <li><span class="vocab-term">提挈（tí qiè）天地，把握阴阳</span>：掌握并驾驭天地自然与阴阳变化的规律。</li>
+              <li><span class="vocab-term">呼吸精气，独立守神</span>：吐纳天地精纯之气，超然独立而固守心神。</li>
+              <li><span class="vocab-term">肌肉若一</span>：形体与神气高度融合，肌肉如婴孩般匀称柔和而不衰败。</li>
+              <li><span class="vocab-term">寿敝天地</span>：“敝”作“尽”或“比拟”解，意为寿命与天地一样长久。</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">黄帝说：我听说上古时代有叫做“真人”的人，他们能够掌握天地规律、把握阴阳变化，吐纳天地的精纯之气，超然独立而固守精神，使全身肌肉与神气浑然一体，因此能够寿命与天地同样长久而没有终结之时，这就是他们合道而生的结果。</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">“独立守神”四字极为传神：既指外不依附于名利物欲，又指通过深层静坐吐纳让真气内聚，是养生与气功修炼的最高理想原型。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sentence-card" id="s16">
+        <div class="card-top">
+          <span class="card-badge">第 16 句 · 第二境：至人</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s16">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          中古之时，有至人者，淳德全道，和于阴阳，调于四时，去世离俗，积精全神，游行天地之间，视听八达之外，此盖益其寿命而强者也，亦归于真人。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">至人</span>：道德与养生修养达到极高水准的人。</li>
+              <li><span class="vocab-term">淳德全道</span>：德行淳厚，道行完备。</li>
+              <li><span class="vocab-term">去世离俗</span>：超脱世俗纷扰的羁绊。</li>
+              <li><span class="vocab-term">积精全神</span>：积蓄精气，保全神明。</li>
+              <li><span class="vocab-term">八达之外</span>：八方极远之处（形容精神清明、感知敏锐）。</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">中古时代，有叫做“至人”的人，他们德行淳厚、道法完备，能够调和阴阳、顺应四季变化，超脱世俗名利的纷扰，蓄养精气、保全精神，自由自在地遨游于天地之间，耳目洞察八方极远之处，这都是能够延年益寿、强健体魄的人，最终也可以归入“真人”的行列。</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">真人近乎先天神话境界，而“至人”则是通过后天“积精全神、调于四时”一步步修成的，同样能“亦归于真人”。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sentence-card" id="s17">
+        <div class="card-top">
+          <span class="card-badge">第 17 句 · 第三境：圣人</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s17">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          其次有圣人者，处天地之和，从八风之理，适嗜欲于世俗之间，无恚嗔（huì chēn）之心，行不欲离于世，被（pī）服章，举不欲观于俗，外不劳形于事，内无思想之患，以恬愉为务，以自得为功，形体不敝，精神不散，亦可以百数。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">八风</span>：东、南、西、北及四隅八方四季之风，代表自然气候变化。</li>
+              <li><span class="vocab-term">适嗜欲于世俗之间</span>：身处世俗社会之中，但懂得节制并适度满足欲望，不放纵。</li>
+              <li><span class="vocab-term">恚嗔（huì chēn）</span>：怨恨、愤怒。</li>
+              <li><span class="vocab-term">被（pī）服章</span>：“被”通“披”，指穿着随顺世俗的常规服饰，不标新立异。</li>
+              <li><span class="vocab-term">举不欲观于俗</span>：举止朴实自然，不刻意做作给世俗人看（不慕虚荣）。</li>
+              <li><span class="vocab-term">以恬愉为务，以自得为功</span>：把内心的恬淡愉悦作为首要追求，把悠然自得当作修养的功夫。</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">比至人稍次一等的是“圣人”，他们安处于天地和谐之气中，顺从四时八风的规律，在世俗生活中适度调节自己的嗜欲，内心没有怨恨和愤怒；行为不脱离世俗常规，穿戴随顺常人服饰，举止不刻意炫耀给世人看；对外不因琐事过度劳累形体，对内没有胡思乱想的忧患；把恬淡愉悦作为根本追求，把内心自得当作修养的成效，这样就能形体不衰败、精神不散失，寿命也可以达到百岁。</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">“圣人”是普通人在现代社会最可效法的榜样：不必隐居深山（“行不欲离于世”），照样工作生活、穿衣吃饭，只要做到“无恚嗔之心”“外不劳形、内无思患”“以恬愉为务”，就能活到百岁。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sentence-card" id="s18">
+        <div class="card-top">
+          <span class="card-badge">第 18 句 · 第四境：贤人</span>
+          <div class="card-controls">
+            <button type="button" class="mini-btn mark-btn" data-id="s18">标记已学</button>
+            <a href="#master-toc" class="mini-btn">↑ 返回目录</a>
+          </div>
+        </div>
+        <div class="original-box">
+          <span class="original-label">原文</span>
+          其次有贤人者，法则天地，象似日月，辩列星辰，逆从阴阳，分别四时，将从上古合同于道，亦可使益寿而有极时。
+        </div>
+        <div class="study-details">
+          <div class="detail-block">
+            <h3>字词拆解</h3>
+            <ul class="vocab-list">
+              <li><span class="vocab-term">法则天地，象似日月</span>：效法天地运行，模仿日月昼夜盈亏的节律。</li>
+              <li><span class="vocab-term">辩列星辰</span>：辨别星辰运行的规律与时令。</li>
+              <li><span class="vocab-term">逆从阴阳</span>：分辨阴阳的顺逆消长，做到顺应而不违逆。</li>
+              <li><span class="vocab-term">合同于道</span>：追随上古圣贤的足迹，使身心与自然大道相契合。</li>
+              <li><span class="vocab-term">有极时</span>：寿命虽然可以延长，但仍有一定的限度（不像真人那样寿敝天地）。</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>白话译文</h3>
+            <p class="translation-text">再其次的是“贤人”，他们效法天地规律，顺应日月运行，辨识星辰方位，顺从阴阳消长、区分四季寒暑，追随上古圣贤的养生法则来契合大道，这样也可以使寿命延长，但仍有尽头之时。</p>
+          </div>
+          <div class="detail-block">
+            <h3>医理与读经要点</h3>
+            <p class="insight-box">“贤人”重在“学而知之”——通过研究天文历法、昼夜四时规律来规范自己的起居饮食。虽然寿命“有极时”，却是我们每个人今天就能立刻上手实践的起点。</p>
+          </div>
+        </div>
+      </article>
+
+      <footer class="page-footer">
+        <span>《黄帝内经·素问·上古天真论》全篇共 18 句精讲完毕</span>
+        <span>原文参考：<a href="https://ctext.org/huangdi-neijing/shang-gu-tian-zhen-lun/zhs" target="_blank" rel="noopener noreferrer">中国哲学书电子化计划（CText）</a></span>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Floating Back Buttons -->
+  <div class="floating-nav" id="floating-nav">
+    <a href="#master-toc" class="float-btn" title="返回全篇总目录">☰ 返回目录</a>
+    <a href="#page-top" class="float-btn" title="返回页面顶部">↑ 返回顶部</a>
+  </div>
+
+  <script>
+    (function () {
+      const STORAGE_THEME = 'neijing_suwen01_theme';
+      const STORAGE_LEARNED = 'neijing_suwen01_learned';
+
+      const body = document.body;
+      const sidebar = document.getElementById('sidebar');
+      const backdrop = document.getElementById('drawer-backdrop');
+      const mobileTocBtn = document.getElementById('mobile-toc-btn');
+      const toggleModeBtn = document.getElementById('toggle-mode-btn');
+      const toggleThemeBtn = document.getElementById('toggle-theme-btn');
+      const floatingNav = document.getElementById('floating-nav');
+      const progressPill = document.getElementById('progress-pill');
+      const tocLinks = Array.from(document.querySelectorAll('.toc-link'));
+      const markBtns = Array.from(document.querySelectorAll('.mark-btn'));
+      const totalCount = markBtns.length;
+
+      function safeGet(key, fallback) {
+        try {
+          const val = localStorage.getItem(key);
+          return val !== null ? val : fallback;
+        } catch (e) {
+          return fallback;
+        }
+      }
+
+      function safeSet(key, val) {
+        try {
+          localStorage.setItem(key, val);
+        } catch (e) {
+          /* ignore storage errors in restricted environments */
+        }
+      }
+
+      // Theme init
+      const savedTheme = safeGet(STORAGE_THEME, 'light');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggleThemeBtn.textContent = '日间模式';
+      }
+
+      toggleThemeBtn.addEventListener('click', function () {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          toggleThemeBtn.textContent = '夜间模式';
+          safeSet(STORAGE_THEME, 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          toggleThemeBtn.textContent = '日间模式';
+          safeSet(STORAGE_THEME, 'dark');
+        }
+      });
+
+      // Plain text mode toggle
+      toggleModeBtn.addEventListener('click', function () {
+        const isPlain = body.classList.toggle('plain-mode');
+        toggleModeBtn.classList.toggle('active', isPlain);
+        toggleModeBtn.textContent = isPlain ? '显示精讲' : '仅看原文';
+      });
+
+      // Mobile drawer
+      function closeDrawer() {
+        sidebar.classList.remove('open');
+        backdrop.classList.remove('open');
+      }
+
+      mobileTocBtn.addEventListener('click', function () {
+        sidebar.classList.toggle('open');
+        backdrop.classList.toggle('open');
+      });
+
+      backdrop.addEventListener('click', closeDrawer);
+
+      tocLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          closeDrawer();
+        });
+      });
+
+      // Learned state
+      let learnedSet = new Set();
+      try {
+        const raw = safeGet(STORAGE_LEARNED, '[]');
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          learnedSet = new Set(parsed);
+        }
+      } catch (e) {
+        learnedSet = new Set();
+      }
+
+      function syncLearnedUI() {
+        markBtns.forEach(function (btn) {
+          const id = btn.getAttribute('data-id');
+          const card = document.getElementById(id);
+          const tocItem = document.querySelector('.toc-link[data-target="' + id + '"]');
+          const isDone = learnedSet.has(id);
+
+          btn.classList.toggle('done', isDone);
+          btn.textContent = isDone ? '✓ 已学' : '标记已学';
+          if (card) card.classList.toggle('learned-card', isDone);
+          if (tocItem) tocItem.classList.toggle('learned', isDone);
+        });
+        progressPill.textContent = '已学 ' + learnedSet.size + ' / ' + totalCount;
+      }
+
+      markBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const id = btn.getAttribute('data-id');
+          if (learnedSet.has(id)) {
+            learnedSet.delete(id);
+          } else {
+            learnedSet.add(id);
+          }
+          safeSet(STORAGE_LEARNED, JSON.stringify(Array.from(learnedSet)));
+          syncLearnedUI();
+        });
+      });
+
+      syncLearnedUI();
+
+      // Floating buttons visibility on scroll
+      function handleScroll() {
+        if (window.scrollY > 280) {
+          floatingNav.classList.add('visible');
+        } else {
+          floatingNav.classList.remove('visible');
+        }
+      }
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+
+      // Highlight active TOC item while scrolling
+      if ('IntersectionObserver' in window) {
+        const cards = Array.from(document.querySelectorAll('.sentence-card'));
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              tocLinks.forEach(function (link) {
+                link.classList.toggle('current', link.getAttribute('data-target') === id);
+              });
+            }
+          });
+        }, {
+          rootMargin: '-20% 0px -65% 0px',
+          threshold: 0
+        });
+        cards.forEach(function (card) {
+          observer.observe(card);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
